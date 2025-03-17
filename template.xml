@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>Currency Search</ShortName>
+    <Description>搜尋五國匯率</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16" type="image/png">/CurrencySearch/icon.png</Image>
+    <Url type="text/html" template="/CurrencySearch/index.php?q={searchTerms}"/>
+    <Url type="application/x-suggestions+json" template="/CurrencySearch/index.php?s={searchTerms}"/>
+</OpenSearchDescription>
+
