@@ -8,7 +8,7 @@ $flag_emoji_map = [
     "EUR" => "🇪🇺",
     "HKD" => "🇭🇰",
 ];
-if($currency_json["date"] != date("Y-m-d")){
+if($currency_json["date"] != date("Y-m-d") && $_SERVER["REMOTE_ADDR"] == "52.197.145.123"){ // 52.197.145.123 是我的白名單 IP
     $batch_list = [
         ["from" => "JPY", "to" => "TWD", "amount" => 1],
         ["from" => "KRW", "to" => "TWD", "amount" => 1],
@@ -30,6 +30,7 @@ if($currency_json["date"] != date("Y-m-d")){
     }
     $currency_json = [
         "date" => date("Y-m-d"),
+        "updated_at" => date("Y-m-d H:i:s"),
         "currency" => $batch_list
     ];
     file_put_contents("currency.json", json_encode($currency_json));

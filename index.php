@@ -111,9 +111,9 @@ if(preg_match("/(^\d+(\.\d+)?)\=/", $_GET['s'], $matches)) {
                         const flagEmoji = {
                             "TWD": "🇹🇼",
                             "JPY": "🇯🇵",
-                            "KRW": "🇰🇷",
                             "USD": "🇺🇸",
                             "EUR": "🇪🇺",
+                            "CNY": "🇨🇳",
                             "HKD": "🇭🇰"
                         };
 
@@ -123,6 +123,7 @@ if(preg_match("/(^\d+(\.\d+)?)\=/", $_GET['s'], $matches)) {
                         $.getJSON('currency.json', function(data) {
                             currencyData = data;
                             updateResults($('#moneyInput').val());
+                            $('#updatedAt').text(currencyData.updated_at);
                         });
 
                         // 更新結果函數
@@ -167,6 +168,9 @@ if(preg_match("/(^\d+(\.\d+)?)\=/", $_GET['s'], $matches)) {
                             <p class="mb-0">使用 Firefox 將此頁加入搜尋引擎，並且將此設為預設搜尋引擎，<br>接著只要在 Firefox Search Bar 輸入金額，加上等號即可顯示結果！<br><span class="text-muted">(如果不是數字和等號的格式，會跳轉到 Google 搜尋)</span></p>
                         </div>
                     </div>
+                </div>
+                <div class="text-muted mt-4">
+                    <p>匯率更新時間：<span id="updatedAt"></span></p>
                 </div>
             </div>
         </div>
