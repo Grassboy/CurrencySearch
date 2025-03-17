@@ -113,8 +113,8 @@ if(preg_match("/(^\d+(\.\d+)?)\=/", $_GET['s'], $matches)) {
                             "JPY": "🇯🇵",
                             "USD": "🇺🇸",
                             "EUR": "🇪🇺",
-                            "CNY": "🇨🇳",
-                            "HKD": "🇭🇰"
+                            "HKD": "🇭🇰",
+                            "KRW": "🇰🇷"
                         };
 
                         let currencyData = null;
@@ -161,8 +161,8 @@ if(preg_match("/(^\d+(\.\d+)?)\=/", $_GET['s'], $matches)) {
                     <div class="card-body p-4">
                         <h5 class="card-title mb-4">基本使用方式</h5>
                         <p class="card-text">在上方輸入一個數字</p>
-                        <p class="card-text">即可顯示該金額的五國貨幣(日幣、美金、歐元、人民幣、港幣)轉成台幣的匯率</p>
-                        <p class="card-text">亦會顯示該金額的台幣轉成五國貨幣(日幣、美金、歐元、人民幣、港幣)的匯率</p>
+                        <p class="card-text">即可顯示該金額的五國貨幣(日幣、韓元、美金、歐元、港幣)轉成台幣的匯率</p>
+                        <p class="card-text">亦會顯示該金額的台幣轉成五國貨幣(日幣、韓元、美金、歐元、港幣)的匯率</p>
                         <div class="alert alert-info mt-4">
                             <h5 class="alert-heading">✨ 進階用法</h5>
                             <p class="mb-0">使用 Firefox 將此頁加入搜尋引擎，並且將此設為預設搜尋引擎，<br>接著只要在 Firefox Search Bar 輸入金額，加上等號即可顯示結果！<br><span class="text-muted">(如果不是數字和等號的格式，會跳轉到 Google 搜尋)</span></p>
