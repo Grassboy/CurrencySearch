@@ -25,7 +25,7 @@ if(preg_match("/(^\d+(\.\d+)?)\=/", $_GET['s'], $matches)) {
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>匯率轉換</title>
+    <title>CurrencySearch - 快速匯率轉換工具</title>
     <!-- Facebook Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://grassboy.tw/CurrencySearch/">
