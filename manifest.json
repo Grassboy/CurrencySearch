@@ -1,0 +1,21 @@
+{
+    "name": "CurrencySearch",
+    "short_name": "匯率查詢",
+    "description": "快速查詢台幣與五大貨幣的即時匯率轉換結果",
+    "start_url": "/CurrencySearch/",
+    "display": "standalone",
+    "background_color": "#f5f5f5",
+    "theme_color": "#0088cc",
+    "icons": [
+        {
+            "src": "/CurrencySearch/icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/CurrencySearch/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+} 

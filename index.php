@@ -25,7 +25,16 @@ if(preg_match("/(^\d+(\.\d+)?)\=/", $_GET['s'], $matches)) {
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0088cc">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
     <title>CurrencySearch - 快速匯率轉換工具</title>
+    <!-- PWA -->
+    <link rel="manifest" href="/CurrencySearch/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="CurrencySearch">
     <!-- Facebook Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://grassboy.tw/CurrencySearch/">
@@ -61,6 +70,14 @@ if(preg_match("/(^\d+(\.\d+)?)\=/", $_GET['s'], $matches)) {
             font-size: 1.8rem;
             font-weight: 300;
         }
+        @media (max-width: 768px) {
+            .gradient-text {
+                font-size: 1.5rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
         .card {
             background: rgba(255, 255, 255, 0.9);
             border: none;
@@ -82,16 +99,16 @@ if(preg_match("/(^\d+(\.\d+)?)\=/", $_GET['s'], $matches)) {
     </style>
 </head>
 <body>
-    <div class="container py-5">
+    <div class="container py-2 py-xl-5">
         <div class="row justify-content-center text-center">
             <div class="col-lg-8">
-                <h1 class="gradient-text mb-4">CurrencySearch</h1>
-                <p class="subtitle mb-5">利用 Firefox Search Box 快速查詢匯率</p>
+                <h1 class="gradient-text mb-xl-4">CurrencySearch</h1>
+                <p class="subtitle mb-xl-5">利用 Firefox Search Box 快速查詢匯率</p>
                 <?php if(isset($money)): ?>
                 <div class="card shadow mb-4">
                     <div class="card-body p-4">
                         <div class="d-flex align-items-center justify-content-center mb-4">
-                            <input type="number" class="form-control text-center" style="max-width: 150px;" id="moneyInput" value="<?php echo $money; ?>">
+                            <input type="number" class="form-control text-center" style="max-width: 150px;" id="moneyInput" onfocus="this.select();" value="<?php echo $money; ?>">
                             <span class="ms-2">的匯率轉換結果</span>
                         </div>
                         <div class="row">
@@ -175,5 +192,18 @@ if(preg_match("/(^\d+(\.\d+)?)\=/", $_GET['s'], $matches)) {
             </div>
         </div>
     </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/CurrencySearch/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
